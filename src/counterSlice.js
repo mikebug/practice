@@ -1,4 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+
+export const fetchRandomNumber = createAsyncThunk(
+  "randoms", // The URL to fetch
+  async () => {
+    const response = await fetch(
+      "https://www.random.org/integers/?num=1&min=1&max=100&col=1&base=10&format=plain&rnd=new"
+    );
+    const data = await response.json();
+    return data;
+  }
+);
 
 export const counterSlice = createSlice({
   name: "counter",
@@ -24,10 +35,15 @@ export const counterSlice = createSlice({
       state.value = state.value * (1 + action.payload / 100);
     },
   },
+  extraReducers: {
+    [fetchRandomNumber.fulfilled]: (state, action) => {
+      state.value = action.payload;
+    },
+  },
 });
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount, addTax } =
+export const { setValue, increment, decrement, incrementByAmount, addTax } =
   counterSlice.actions;
 
 export default counterSlice.reducer;

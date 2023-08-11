@@ -7,6 +7,10 @@ import PassingUp from "./PassingUp";
 import Todo from "./Todo";
 import { Counter } from "./Counter";
 import LookatGlobal from "./LookatGlobal";
+import InputData from "./inputData";
+import RandomNumber from "./RandomNumber";
+import UserRedux from "./UserRedux";
+import TestUserRedux from "./TestUserRedux";
 
 function App() {
   const data_from_child = (data) => {
@@ -23,6 +27,10 @@ function App() {
       <Todo />
       <Counter />
       <LookatGlobal />
+      <InputData />
+      <RandomNumber />
+      <UserRedux />
+      <TestUserRedux />
     </div>
   );
 }
