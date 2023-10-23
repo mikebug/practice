@@ -11,6 +11,7 @@ import InputData from "./inputData";
 import RandomNumber from "./RandomNumber";
 import UserRedux from "./UserRedux";
 import TestUserRedux from "./TestUserRedux";
+import Grid from "./Grid";
 
 function App() {
   const data_from_child = (data) => {
@@ -31,6 +32,7 @@ function App() {
       <RandomNumber />
       <UserRedux />
       <TestUserRedux />
+      <Grid></Grid>
     </div>
   );
 }
